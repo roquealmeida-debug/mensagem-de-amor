@@ -1,6 +1,7 @@
 const botao = document.getElementById('botao');
 const mensagem = document.getElementById('mensagem');
 const audioEstourado = document.getElementById('audio-estourado');
+const gifAmor = document.getElementById('gif-amor');
 
 const frases = [
     "Para de ser idiota",
@@ -18,6 +19,7 @@ const frases = [
 botao.addEventListener('click', () => {
     botao.disabled = true;
     mensagem.style.opacity = 0;
+    gifAmor.style.display = 'none';
     
     // Reproduzir o áudio
     audioEstourado.play();
@@ -26,6 +28,10 @@ botao.addEventListener('click', () => {
         const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
         mensagem.textContent = fraseAleatoria;
         mensagem.style.opacity = 1;
+        
+        // Mostrar o GIF
+        gifAmor.style.display = 'block';
+        
         botao.disabled = false;
     }, 500);
 });
